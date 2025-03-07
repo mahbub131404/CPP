@@ -1,0 +1,253 @@
+🔹 What is a Class in C++?
+A class in C++ is a blueprint (like a plan or design) for creating objects.
+
+📌 Think of it like a "cookie cutter" 🍪:
+
+The class is the cookie cutter (the design).
+The objects are the actual cookies (real things created from the design).
+💡 Example:
+
+class Car {
+    // Class body (blueprint)
+};
+This doesn't do anything yet, but it defines what a "Car" is.
+
+🔹 Objects: The Real Things from a Class
+An object is a real instance of a class.
+
+📌 Example:
+
+class Car {
+public:
+    string brand;
+};
+
+int main() {
+    Car myCar;  // Creating an object from the Car class
+    myCar.brand = "Toyota";
+    cout << myCar.brand << endl;
+    return 0;
+}
+🔹 Output:
+Toyota
+
+🚀 Here, myCar is an object of class Car!
+
+🔹 Defining a Class in C++
+A class contains attributes (data) and methods (functions).
+
+📌 Example: A Class with Attributes and Methods
+
+#include <iostream>
+using namespace std;
+
+class Dog {
+public:  
+    string name;
+    int age;
+
+    void bark() {
+        cout << name << " says Woof Woof!" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.name = "Buddy";
+    myDog.age = 3;
+    
+    cout << myDog.name << " is " << myDog.age << " years old." << endl;
+    myDog.bark();
+
+    return 0;
+}
+🔹 Output:
+
+
+Buddy is 3 years old.
+Buddy says Woof Woof!
+🔹 Class Members (Attributes & Methods)
+A class contains:
+
+Type	What it is	Example
+Attributes	Variables inside a class	string color;
+Methods	Functions inside a class	void drive() { cout << "Vroom!"; }
+📌 Example:
+
+class Car {
+public:
+    string brand;  // Attribute
+    void honk() {  // Method
+        cout << "Beep Beep!" << endl;
+    }
+};
+🔹 Private vs Public Members
+In C++, class members can be:
+
+Access Specifier	Who Can Access It?	Example
+public	Everyone can access	public: int speed;
+private	Only inside the class	private: int engineNumber;
+📌 Example:
+
+class BankAccount {
+private:
+    double balance;  // Private variable
+
+public:
+    void setBalance(double b) {  // Public method
+        balance = b;
+    }
+    double getBalance() {  // Public method
+        return balance;
+    }
+};
+
+int main() {
+    BankAccount myAccount;
+    myAccount.setBalance(1000);
+    cout << "Balance: $" << myAccount.getBalance() << endl;
+    return 0;
+}
+🔹 Output:
+
+
+Balance: $1000
+🚀 Private members (balance) can't be accessed directly! They need methods.
+
+🔹 Constructors: Automatic Setup for Objects
+A constructor is a special function that runs automatically when you create an object.
+
+📌 Example:
+
+
+class Car {
+public:
+    string brand;
+
+    // Constructor (same name as class)
+    Car(string b) {
+        brand = b;
+    }
+
+    void showBrand() {
+        cout << "This car is a " << brand << endl;
+    }
+};
+
+int main() {
+    Car myCar("Tesla");  // Constructor runs automatically
+    myCar.showBrand();
+
+    return 0;
+}
+🔹 Output:
+
+
+This car is a Tesla
+🚀 Constructors make initialization easier!
+
+🔹 Destructors: Cleanup When Objects are Deleted
+A destructor is a function that runs when an object is destroyed.
+
+📌 Example:
+
+
+class Car {
+public:
+    Car() {  // Constructor
+        cout << "Car is created!" << endl;
+    }
+
+    ~Car() {  // Destructor
+        cout << "Car is destroyed!" << endl;
+    }
+};
+
+int main() {
+    Car myCar;
+    return 0;
+}
+🔹 Output:
+
+
+Car is created!
+Car is destroyed!
+🚀 Destructors clean up resources when objects are deleted.
+
+🔹 Inheritance: One Class from Another
+Inheritance allows a new class to reuse the code of an existing class.
+
+📌 Example:
+
+
+class Animal {
+public:
+    void eat() {
+        cout << "I can eat!" << endl;
+    }
+};
+
+class Dog : public Animal {  // Dog inherits from Animal
+public:
+    void bark() {
+        cout << "Woof Woof!" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.eat();  // Inherited from Animal
+    myDog.bark(); // Own method
+
+    return 0;
+}
+🔹 Output:
+
+
+I can eat!
+Woof Woof!
+🚀 Dog inherits from Animal, so it can eat too!
+
+🔹 Polymorphism: One Function, Different Forms
+Polymorphism lets a function behave differently for different objects.
+
+📌 Example:
+
+class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal makes a sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {
+        cout << "Dog barks" << endl;
+    }
+};
+
+int main() {
+    Animal* a;
+    Dog d;
+    a = &d;
+    a->sound();  // Calls Dog's sound
+
+    return 0;
+}
+🔹 Output:
+
+Dog barks
+🚀 Virtual functions allow dynamic behavior!
+
+🔹 Summary of Classes in C++
+✔ A class is a blueprint for objects.
+✔ An object is an instance of a class.
+✔ Access Specifiers control who can access what.
+✔ Constructors initialize objects automatically.
+✔ Destructors clean up when objects are deleted.
+✔ Inheritance allows code reuse between classes.
+✔ Polymorphism lets functions behave differently.
+
+🚀 Final Thoughts
+🔥 Now you have a complete understanding of Classes in C++! 🎯
