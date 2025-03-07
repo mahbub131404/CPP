@@ -61,17 +61,16 @@ int main() {
 
     return 0;
 }
+
 🔹 Output:
-
-
 Buddy is 3 years old.
 Buddy says Woof Woof!
+
 🔹 Class Members (Attributes & Methods)
 A class contains:
-
-Type	What it is	Example
-Attributes	Variables inside a class	string color;
-Methods	Functions inside a class	void drive() { cout << "Vroom!"; }
+Type + What it is? + Example
+Attributes + Variables inside a class +	string color;
+Methods + Functions inside a class + void drive() { cout << "Vroom!"; }
 📌 Example:
 
 class Car {
