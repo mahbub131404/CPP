@@ -12,9 +12,6 @@ But with operator overloading, you can make + combine two objects in any way you
 🔹 Example: Adding Two Complex Numbers
 📌 Without Overloading
 
-cpp
-Copy
-Edit
 #include <iostream>
 using namespace std;
 
@@ -41,9 +38,6 @@ int main() {
 🔹 Overloading the + Operator
 📌 With Operator Overloading
 
-cpp
-Copy
-Edit
 #include <iostream>
 using namespace std;
 
@@ -71,19 +65,12 @@ int main() {
     return 0;
 }
 🔹 Output:
-
-go
-Copy
-Edit
 Result: 5 + 9i
 🚀 Now + works for Complex numbers because we defined it!
 
 🔹 How Does Operator Overloading Work?
 📌 Syntax for Operator Overloading
 
-cpp
-Copy
-Edit
 returnType operatorOPERATOR(argument) {
     // Define custom behavior for the operator
 }
@@ -94,9 +81,6 @@ operator/ → Overloads /
 🔹 Overloading the - Operator
 📌 Example: Subtracting Two Complex Numbers
 
-cpp
-Copy
-Edit
 class Complex {
 public:
     int real, imag;
@@ -121,19 +105,11 @@ int main() {
     return 0;
 }
 🔹 Output:
-
-go
-Copy
-Edit
 Result: 4 + 5i
 🚀 Now - works for Complex numbers!
 
 🔹 Overloading the * Operator
 📌 Example: Multiplying Two Complex Numbers
-
-cpp
-Copy
-Edit
 class Complex {
 public:
     int real, imag;
@@ -159,19 +135,11 @@ int main() {
     return 0;
 }
 🔹 Output:
-
-go
-Copy
-Edit
 Result: -5 + 10i
 🚀 Now * works for Complex numbers!
 
 🔹 Overloading the << Operator for cout
 📌 Printing Objects with <<
-
-cpp
-Copy
-Edit
 #include <iostream>
 using namespace std;
 
@@ -197,10 +165,6 @@ int main() {
     return 0;
 }
 🔹 Output:
-
-mathematica
-Copy
-Edit
 Complex Number: 3 + 4i
 🚀 Now << works with cout for Complex numbers!
 
@@ -223,9 +187,6 @@ Complex Number: 3 + 4i
 
 Code Breakdown:
 1. Class Definition
-cpp
-Copy
-Edit
 class Complex {
 What?
 Defines a class named Complex to represent complex numbers.
@@ -234,9 +195,6 @@ The class is defined using the class keyword.
 Why?
 A complex number consists of a real and an imaginary part, so a class is a good way to encapsulate both values together.
 2. Data Members
-cpp
-Copy
-Edit
 public:
     int real, imag;
 What?
@@ -246,9 +204,6 @@ These variables are defined inside the class under the public access specifier.
 Why?
 Keeping them public allows direct access from outside the class (though usually, private access is preferred with getter/setter methods).
 3. Constructor
-cpp
-Copy
-Edit
     Complex(int r, int i) {
         real = r;
         imag = i;
@@ -260,9 +215,7 @@ When an object of Complex is created, this constructor is called with two intege
 Why?
 A constructor ensures that each Complex object is properly initialized with given values, avoiding uninitialized variables.
 4. Operator Overloading
-cpp
-Copy
-Edit
+
     Complex operator*(const Complex& obj) {
         Complex result(real * obj.real, imag * obj.imag);
         return result;
@@ -280,55 +233,15 @@ Why?
 Operator overloading allows using * with objects, making the code more intuitive (c1 * c2 instead of a separate multiply() function).
 ⚠️ Error:
 This multiplication logic is incorrect for complex numbers. The correct formula for multiplication of two complex numbers 
-(
-𝑎
-+
-𝑏
-𝑖
-)
-∗
-(
-𝑐
-+
-𝑑
-𝑖
-)
+(𝑎+𝑏𝑖)∗(𝑐+𝑑𝑖)
 (a+bi)∗(c+di) is:
-
-real
-=
-(
-𝑎
-×
-𝑐
-)
-−
-(
-𝑏
-×
-𝑑
-)
-real=(a×c)−(b×d)
-imag
-=
-(
-𝑎
-×
-𝑑
-)
-+
-(
-𝑏
-×
-𝑐
-)
-imag=(a×d)+(b×c)
+real= (𝑎 × 𝑐) − (𝑏 × 𝑑)
+real= (a × c) −(b × d)
+imag= (𝑎 × 𝑑) + (𝑏 × 𝑐)
+imag= ( a × d) + (b × c)
 The provided code simply multiplies the real and imaginary parts separately, which is not correct.
 
 5. main() Function
-cpp
-Copy
-Edit
 int main() {
 What?
 This is the entry point of the program where execution begins.
@@ -337,9 +250,6 @@ The function is declared with int as its return type, which means it should retu
 Why?
 Every C++ program needs a main() function as its starting point.
 6. Creating Complex Number Objects
-cpp
-Copy
-Edit
     Complex c1(3, 4), c2(2, 5);
 What?
 Creates two objects, c1 and c2, of class Complex.
@@ -349,9 +259,6 @@ Similarly, the constructor is called for c2 with r=2 and i=5, initializing c2.re
 Why?
 We need two complex numbers to demonstrate multiplication.
 7. Multiplication Operation
-cpp
-Copy
-Edit
     Complex c3 = c1 * c2;
 What?
 Calls the overloaded * operator to multiply c1 and c2, storing the result in c3.
@@ -364,9 +271,6 @@ c3 now holds the incorrect result (6, 20).
 Why?
 The goal is to perform multiplication, but since the formula is incorrect, the result is mathematically wrong.
 8. Printing the Result
-cpp
-Copy
-Edit
     cout << "Result: " << c3.real << " * " << c3.imag << "i" << endl;
 What?
 Prints the complex number multiplication result.
@@ -377,21 +281,10 @@ Why?
 To display the output to the user.
 ⚠️ Mistake:
 The output format is incorrect. The output will be:
-
-go
-Copy
-Edit
 Result: 6 * 20i
 This is not the standard way to display complex numbers. It should be:
-
-cpp
-Copy
-Edit
 cout << "Result: " << c3.real << " + " << c3.imag << "i" << endl;
 9. Return Statement
-cpp
-Copy
-Edit
     return 0;
 What?
 Indicates successful program execution.
@@ -402,9 +295,7 @@ A return value of 0 signifies successful completion, following C++ conventions.
 Issues & Fixes
 Incorrect Multiplication Logic
 The correct multiplication formula should be:
-cpp
-Copy
-Edit
+
 Complex operator*(const Complex& obj) {
     int newReal = (real * obj.real) - (imag * obj.imag);
     int newImag = (real * obj.imag) + (imag * obj.real);
@@ -412,15 +303,11 @@ Complex operator*(const Complex& obj) {
 }
 Incorrect Output Format
 The output should be:
-cpp
-Copy
-Edit
+
 cout << "Result: " << c3.real << " + " << c3.imag << "i" << endl;
 This ensures proper representation of complex numbers.
 Final Corrected Code
-cpp
-Copy
-Edit
+
 #include <iostream>
 using namespace std;
 
@@ -449,8 +336,5 @@ int main() {
 }
 Expected Output:
 
-go
-Copy
-Edit
 Result: -14 + 23i
 This correctly represents complex number multiplication.
