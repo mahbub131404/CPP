@@ -1,0 +1,211 @@
+🔹 What is a Derived Class?
+Imagine you have a big toy car 🚗. Now, you want to make a new toy car 🚙 
+that is similar but has extra features like a cool spoiler or a faster engine.
+
+In C++, we can create a new class from an existing class. This is called Inheritance, 
+and the new class is called a Derived Class.
+
+🔹 Example: Parent and Child Relationship
+📌 Think of it like this:
+
+Parent Class (Base Class) = A general toy car 🚗
+Child Class (Derived Class) = A new version with a spoiler 🚙
+💡 A Derived Class inherits everything from the Parent Class!
+
+🔹 Example: Creating a Derived Class in C++
+Let's say we have a "Vehicle" class and a "Car" class that inherits from it.
+
+    #include <iostream>
+    using namespace std;
+    // Base class (Parent)
+    class Vehicle {
+        public:
+            int wheels = 4;
+            void start() {
+                cout << "Vehicle is starting..." << endl;
+            }
+    };
+
+    // Derived class (Child)
+    class Car : public Vehicle {
+        public:
+            void honk() {
+            cout << "Beep! Beep! 🚗" << endl;
+        }
+    };
+
+    int main() {
+        Car myCar;
+        myCar.start();  // Inherited from Vehicle
+        myCar.honk();   // Defined in Car
+
+        cout << "Car has " << myCar.wheels << " wheels!" << endl;
+        return 0;
+    }
+
+🔹 Output:
+    Vehicle is starting...
+    Beep! Beep! 🚗
+    Car has 4 wheels!
+
+🚀 What’s happening here?
+The Car class inherits start() and wheels from the Vehicle class.
+The Car class adds a new function honk().
+🔹 Types of Inheritance (How Classes Can Be Derived)
+In C++, you can inherit classes in different ways:
+
+1️⃣ Public Inheritance (Most Common ✅)
+Everything public in the Parent stays public in the Child.
+Everything protected in the Parent stays protected in the Child.
+
+    class Parent {
+        public:
+            int a;
+        protected:
+            int b;
+        private:
+            int c;
+    };
+
+    class Child : public Parent {
+        // a is public
+        // b is protected
+        // c is NOT inherited (private members are NOT inherited)
+    };
+
+2️⃣ Protected Inheritance
+Everything public in the Parent becomes protected in the Child.
+Everything protected in the Parent stays protected in the Child.
+cpp
+Copy
+Edit
+class Child : protected Parent {
+    // a becomes protected
+    // b stays protected
+    // c is NOT inherited
+};
+3️⃣ Private Inheritance
+Everything public and protected in the Parent becomes private in the Child.
+cpp
+Copy
+Edit
+class Child : private Parent {
+    // a becomes private
+    // b becomes private
+    // c is NOT inherited
+};
+💡 Public inheritance is the most used type!
+
+🔹 Overriding Functions in Derived Classes
+Sometimes, a Derived Class needs to change the behavior of a function from the Base Class.
+
+📌 Example:
+
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void makeSound() {
+        cout << "Some generic animal sound..." << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() {  // Overrides the function
+        cout << "Woof! Woof! 🐶" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.makeSound();  // Calls the overridden function
+    return 0;
+}
+🔹 Output:
+Woof! Woof! 🐶
+
+🚀 The Derived Class changes the function from the Parent Class!
+
+🔹 Calling Parent Class Functions
+Sometimes, you might want to call the Parent Class’s function inside the Derived Class.
+
+📌 Example:
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void makeSound() {
+        cout << "Some generic animal sound..." << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() {
+        Animal::makeSound();  // Calls Parent Class function
+        cout << "Woof! Woof! 🐶" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.makeSound();
+    return 0;
+}
+🔹 Output:
+
+
+Some generic animal sound...
+Woof! Woof! 🐶
+🚀 Now, both Parent and Child functions are called!
+
+🔹 Constructors in Derived Classes
+When you create a Derived Class object, the Base Class constructor runs first.
+
+📌 Example:
+
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    Animal() {
+        cout << "Animal created!" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    Dog() {
+        cout << "Dog created!" << endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    return 0;
+}
+🔹 Output:
+
+
+Animal created!
+Dog created!
+🚀 The Parent Constructor runs first!
+
+🔹 Summary
+✔ Derived Classes inherit from Base Classes.
+✔ public, protected, and private inheritance affect visibility.
+✔ Functions can be overridden in Derived Classes.
+✔ Constructors in Base Classes run first.
+
+🚀 Final Thoughts
+🔥 Now you understand Derived Classes in C++! 🎯
+💡 Try making your own Derived Classes!
