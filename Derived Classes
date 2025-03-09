@@ -76,9 +76,7 @@ Everything protected in the Parent stays protected in the Child.
 2️⃣ Protected Inheritance
 Everything public in the Parent becomes protected in the Child.
 Everything protected in the Parent stays protected in the Child.
-cpp
-Copy
-Edit
+
 class Child : protected Parent {
     // a becomes protected
     // b stays protected
@@ -86,9 +84,7 @@ class Child : protected Parent {
 };
 3️⃣ Private Inheritance
 Everything public and protected in the Parent becomes private in the Child.
-cpp
-Copy
-Edit
+
 class Child : private Parent {
     // a becomes private
     // b becomes private
@@ -101,33 +97,30 @@ Sometimes, a Derived Class needs to change the behavior of a function from the B
 
 📌 Example:
 
-cpp
-Copy
-Edit
-#include <iostream>
-using namespace std;
+    #include <iostream>
+    using namespace std;
+    class Animal {
+        public:
+        void makeSound() {
+            cout << "Some generic animal sound..." << endl;
+        }
+    };
 
-class Animal {
-public:
-    void makeSound() {
-        cout << "Some generic animal sound..." << endl;
+    class Dog : public Animal {
+        public:
+        void makeSound() {  // Overrides the function
+            cout << "Woof! Woof! 🐶" << endl;
+        }
+    };
+
+    int main() {
+        Dog myDog;
+        myDog.makeSound();  // Calls the overridden function
+        return 0;
     }
-};
 
-class Dog : public Animal {
-public:
-    void makeSound() {  // Overrides the function
-        cout << "Woof! Woof! 🐶" << endl;
-    }
-};
-
-int main() {
-    Dog myDog;
-    myDog.makeSound();  // Calls the overridden function
-    return 0;
-}
 🔹 Output:
-Woof! Woof! 🐶
+    Woof! Woof! 🐶
 
 🚀 The Derived Class changes the function from the Parent Class!
 
@@ -135,35 +128,31 @@ Woof! Woof! 🐶
 Sometimes, you might want to call the Parent Class’s function inside the Derived Class.
 
 📌 Example:
+    #include <iostream>
+    using namespace std;
+    class Animal {
+        public:
+        void makeSound() {
+            cout << "Some generic animal sound..." << endl;
+        }
+    };
 
-#include <iostream>
-using namespace std;
+    class Dog : public Animal {
+        public:
+        void makeSound() {
+            Animal::makeSound();  // Calls Parent Class function
+            cout << "Woof! Woof! 🐶" << endl;
+        }
+    };
 
-class Animal {
-public:
-    void makeSound() {
-        cout << "Some generic animal sound..." << endl;
+    int main() {
+        Dog myDog;
+        myDog.makeSound();
+        return 0;
     }
-};
-
-class Dog : public Animal {
-public:
-    void makeSound() {
-        Animal::makeSound();  // Calls Parent Class function
-        cout << "Woof! Woof! 🐶" << endl;
-    }
-};
-
-int main() {
-    Dog myDog;
-    myDog.makeSound();
-    return 0;
-}
 🔹 Output:
-
-
-Some generic animal sound...
-Woof! Woof! 🐶
+    Some generic animal sound...
+    Woof! Woof! 🐶
 🚀 Now, both Parent and Child functions are called!
 
 🔹 Constructors in Derived Classes
