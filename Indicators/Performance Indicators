@@ -1,0 +1,27 @@
+These measure how fast and efficient your program is.
+
+📌 Important Indicators
+✔ Execution Time: How long your program takes to run.
+✔ Memory Usage: How much RAM your program uses.
+✔ CPU Usage: How much processing power your program needs.
+
+📌 Example (Measuring Execution Time)
+#include <iostream>
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
+
+int main() {
+    auto start = high_resolution_clock::now(); // Start time
+
+    for (int i = 0; i < 1000000; i++); // Simulated work
+
+    auto stop = high_resolution_clock::now(); // Stop time
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "Execution Time: " << duration.count() << " ms\n";
+
+    return 0;
+}
+🔹 Output Example:
+Execution Time: 5 ms
+💡 Use this to check how long your code takes to run!
