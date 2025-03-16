@@ -22,25 +22,3 @@ int main() {
     return 0;
 }
 🔹 Better readability & maintainability!
-
-5️⃣ Other Important Indicators
-🔹 Warnings (g++ -Wall) → Helps catch potential issues.
-🔹 Memory Leaks (valgrind) → Detects memory leaks in C++.
-🔹 Error Codes (errno) → Returns error codes if something fails.
-
-📌 Example (Checking for File Errors)
-#include <iostream>
-#include <fstream>
-using namespace std;
-
-int main() {
-    ifstream file("nonexistent.txt");
-    if (!file) {
-        cout << "Error: File not found!" << endl;
-    }
-    return 0;
-}
-
-🔹 Output:
-Error: File not found!
-🚀 Now your program can detect missing files!
