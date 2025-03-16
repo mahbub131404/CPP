@@ -1,0 +1,14 @@
+Common Debugging Indicators
+🔹 Compiler Errors: When your code has syntax issues (e.g., missing ;, undeclared variables).
+🔹 Runtime Errors: When your code crashes while running (e.g., division by zero).
+🔹 Logical Errors: When your code runs but gives wrong results.
+
+📌 Example (Runtime Error)
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10, b = 0;
+    cout << a / b; // ❌ ERROR: Division by zero!
+    return 0;
+}
