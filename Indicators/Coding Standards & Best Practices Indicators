@@ -1,0 +1,46 @@
+These help write clean and professional code.
+
+✔ Use meaningful variable names (e.g., int age; ✅ instead of int x; ❌).
+✔ Indent code properly to make it readable.
+✔ Avoid global variables unless necessary.
+✔ Use comments to explain important parts of your code.
+
+📌 Example (Good vs. Bad Code)
+❌ Bad Code:
+#include <iostream>
+using namespace std;
+int main(){int x=5,y=10;cout<<x+y;return 0;}
+
+✅ Good Code:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1 = 5; // First number
+    int num2 = 10; // Second number
+    cout << num1 + num2 << endl; // Print sum
+    return 0;
+}
+🔹 Better readability & maintainability!
+
+5️⃣ Other Important Indicators
+🔹 Warnings (g++ -Wall) → Helps catch potential issues.
+🔹 Memory Leaks (valgrind) → Detects memory leaks in C++.
+🔹 Error Codes (errno) → Returns error codes if something fails.
+
+📌 Example (Checking for File Errors)
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream file("nonexistent.txt");
+    if (!file) {
+        cout << "Error: File not found!" << endl;
+    }
+    return 0;
+}
+
+🔹 Output:
+Error: File not found!
+🚀 Now your program can detect missing files!
