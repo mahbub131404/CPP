@@ -1,0 +1,15 @@
+
+🔹 Red Squiggly Lines → Syntax errors (e.g., missing semicolon ;).
+🔹 Yellow Underline → Warnings (e.g., unused variables).
+🔹 Green Underline → Hints (e.g., optimizations).
+
+📌 Example (Syntax Error in VS Code)
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello World"  // ❌ Missing semicolon here
+    return 0;
+}
+👀 Fix: Add ; at the end of the cout statement.
+
